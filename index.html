@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <header>
         <h1>To do List</h1>
@@ -17,8 +19,15 @@
         </div>
         <div id="todo-container">
 
-        
+
         </div>
+
+
+        <form action="">
+            <label for="title">Aggiungi titolo to do</label>
+            <input type="text" name="title" id="title">
+            <button onclick="indexAddTodo()">Aggiungi to do</button>
+        </form>
     </main>
 </body>
 <script src="./model/todo.js"></script>
@@ -26,4 +35,5 @@
 <script src="./services/data-service.js"></script>
 <script src="./services/storage-service.js"></script>
 <script src="./main.js"></script>
+
 </html>

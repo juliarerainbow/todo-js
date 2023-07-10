@@ -29,7 +29,7 @@ class Manager {
 
     addTodoWithButton(title){
 
-        const newTodo = new Todo(title,);
+        const newTodo = new Todo(title);
         this.addTodo(newTodo);
 
     }
