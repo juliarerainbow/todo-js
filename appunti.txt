@@ -1,0 +1,6 @@
+Document -> DOM -> Document Object Model 
+Document ha tantissime proprietà e informazioni -> console.log(document);
+InnerHTML è una di queste e trascrive quello che c'è in una pagina.
+
+Il dom ha un'insieme di caratteristiche a cui posso associare funzioni
+esempio "AddEventListener"

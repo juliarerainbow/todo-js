@@ -1,7 +1,14 @@
 // console.log(DataService.getData());
-const todos = DataService.getData();
+// const todos = DataService.getData();
+// const todos = StorageService.loadTodos();
+// let manager;
+// if(todos){
+//     manager=new Manager(todos);
+// }else{
+//     manager=new Manager();
+// }
+let manager=new Manager();
 
-const manager = new Manager(todos);
 console.log(manager);
 
 // function render(){
@@ -50,15 +57,11 @@ console.log(manager);
 // render();
 
 
-
-
-
-
 function render2(){
 
     const todoContainer = document.getElementById('todo-container');
     todoContainer.innerHTML= ''; //per ricreare l'html con il container vuoto
-    
+    console.log(manager);
 
     for (let index = 0; index < manager.todoArray.length; index++) {
 
@@ -82,18 +85,21 @@ function render2(){
         const deleteBtn=document.getElementById('delete-btn'+index);
         deleteBtn.addEventListener('click', () => {
             manager.deleteTodo(index);
+            // StorageService.saveData(manager.todoArray);
             render2();
         })
         completeBtn.addEventListener('click', () => {
+            manager.changeCompleteStatus(index);
             todo.isCompleted = !todo.isCompleted; 
+            // StorageService.saveData(manager.todoArray);
             render2();
         });
     } 
 }
 
 render2();
-function orderByTitle(){
 
+function orderByTitle(){
     manager.orderTodosByTitle();
     render2();
 }
@@ -104,7 +110,14 @@ function orderByDate(){
 }
 
 function indexAddTodo(){
-    const inputTitle=document.getElementById('title').value;
-    addTodoWithButton(inputTitle);
+    const inputTitle=document.getElementById('title').value.trim();
+    // addTodoWithButton(inputTitle);
+
+    console.log(inputTitle);
+    if (inputTitle){
+        manager.addTodoWithButton(inputTitle);
+        // StorageService.saveData(manager.todoArray);
+        inputTitle.valuse='';
+    }
     render2();
 }
